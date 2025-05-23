@@ -1,0 +1,4 @@
+configured_endpoints: 1
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/embeddings-corporation%2Fdatagyro-d657e3f0c9e3da9ff17ce28df9cbec4c11c3dce60f4ed58a881d564310a6ee54.yml
+openapi_spec_hash: 23a429284159c9ec257ee54ac7d7824f
+config_hash: fcf3203c22b58f7efd4a26d62d16332c
