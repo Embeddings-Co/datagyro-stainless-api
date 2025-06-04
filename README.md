@@ -26,11 +26,7 @@ const client = new Datagyro({
   apiKey: process.env['DATAGYRO_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const response = await client.query.execute({ dataset_id: '118', query_string: 'Engineers' });
-}
-
-main();
+const response = await client.query.execute({ dataset_id: '118', query_string: 'Engineers' });
 ```
 
 ## Streaming responses
@@ -63,12 +59,8 @@ const client = new Datagyro({
   apiKey: process.env['DATAGYRO_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const params: Datagyro.QueryExecuteParams = { dataset_id: '118', query_string: 'Engineers' };
-  const response: string = await client.query.execute(params);
-}
-
-main();
+const params: Datagyro.QueryExecuteParams = { dataset_id: '118', query_string: 'Engineers' };
+const response: string = await client.query.execute(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -81,21 +73,17 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const response = await client.query
-    .execute({ dataset_id: '118', query_string: 'Engineers' })
-    .catch(async (err) => {
-      if (err instanceof Datagyro.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
-}
-
-main();
+const response = await client.query
+  .execute({ dataset_id: '118', query_string: 'Engineers' })
+  .catch(async (err) => {
+    if (err instanceof Datagyro.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
